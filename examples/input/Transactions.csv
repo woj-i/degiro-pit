@@ -1,0 +1,3 @@
+Datum,Uhrzeit,Produkt,ISIN,Referenzbörse,Anzahl,,Kurs,,Wert in Lokalwährun,,Wert,Wechselkurs,,Transaktionskost,,Gesamt,Order-ID
+20-12-2020,16:18,SAP SE,DE0007164600,XET,-30,EUR,106.0800,EUR,3182.40,EUR,3182.40,,EUR,-2.60,EUR,3181.8,1x23xxx1-x123-123x-x3x5-123xx123x2xx
+26-10-2020,15:30,SAP SE,DE0007164600,XET,30,EUR,97.3900,EUR,-2921.70,EUR,-2921.70,,EUR,-2.53,EUR,-2924.23,12x3bxx1-2xx3-1234-9x99-dxxx1b1234b1

@@ -28,6 +28,8 @@ Uruchom:
 
 Pobierz raport z transakcji DeGiro w formie plików csv. Umieść dane w katalogu data pod nazwą Transactions.csv (domyślna nazwa przy eksporcie z DeGiro).
 
+Przykładowy plik z danymi znajdziesz w katalogu `examples/input`.
+
 ## Uruchomienie programu
 
     cd degiro_pit
