@@ -22,3 +22,8 @@ class TestNbpApi(TestCase):
         for currency in Currency:
             res = nbp.get_pln(TestNbpApi.test_date, currency)
             self.assertIsInstance(res, float)
+
+    def test_get_none_for_holiday_date(self):
+        nbp = NbpApi()
+        res = nbp.get_pln("2020-11-11", Currency.EUR)
+        self.assertIsNone(res)
