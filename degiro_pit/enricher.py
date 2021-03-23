@@ -1,6 +1,6 @@
 import pandas as pd
 
-from degiro_pit.DateTaxPoland import DateTaxPoland
+from degiro_pit.date_tax import DateTaxPoland
 from degiro_pit.config import DeGiroPitConfig
 from degiro_pit.nbp_api import NbpApi
 

@@ -3,7 +3,7 @@ from unittest import TestCase
 
 import pandas as pd
 
-from degiro_pit.DateTaxPoland import DateTaxPoland
+from degiro_pit.date_tax import DateTaxPoland
 
 
 class TestDateTaxPoland(TestCase):
