@@ -1,15 +1,34 @@
 # Degiro - PIT
 
-Celem tej aplikacji jest pobranie kursów EUR potrzebnych do obliczenia podatku giełdowego w Polsce. Aplikacja na licencji MIT, autor nie ponosi odpowiedzialności za poprawność działania programu.
+Celem tej aplikacji jest pobranie kursów walut potrzebnych do obliczenia podatku giełdowego w Polsce. 
+Aplikacja na licencji MIT, autor nie ponosi odpowiedzialności za poprawność działania programu.
 
-## Instalacja z kodu źródłowego
+## Wymagania
+
+* [Python 3.8 lub nowszy](https://www.python.org/downloads/)
+
+Dla Windows:
+
+* [Powershell](https://docs.microsoft.com/pl-pl/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-7.1), ewentualnie cmd.exe
+
+## Instalacja
+
+Otwórz `Powershell (Windows)`/ `Terminal (Linux)`. Uruchom:
+
+    pip install degiro-pit-woj-i
+
+## Aktualizacja
+
+    pip install --upgrade degiro-pit-woj-i
+
+## Instalacja z kodu źródłowego (alternatywna do pip install)
 Pobierz kod aplikacji
 
     git clone https://github.com/woj-i/degiro-pit.git
 
 Otwórz terminal w katalogu projektu (tam gdzie README.md). Uruchom:
 
-    python3.8 -m venv venv
+    python -m venv venv
 
 Dla Windows:
 
@@ -26,20 +45,25 @@ Uruchom:
 
 ## Przygotowanie danych
 
-Pobierz raport z transakcji DeGiro w formie plików csv. Umieść dane w katalogu data pod nazwą Transactions.csv (domyślna nazwa przy eksporcie z DeGiro).
+Pobierz raport z transakcji DeGiro w formie plików csv. Zapisz plik w osobnym katalogu (np. Degiro). 
+Domyślna nazwa pliku z transakcjami przy eksporcie z DeGiro to `Transactions.csv`.
 
 Przykładowy plik z danymi znajdziesz w katalogu `examples/input`.
 
 ## Uruchomienie programu
 
-    cd degiro_pit
-    python enricher.py --date_column_name Datum --currency EUR
+Otwórz Powershell/Terminal w katalogu gdzie znajdują się  plik z transakcjami. 
+Powershell można uruchomić przez `Windows Explorer -> Plik -> Otwórz Windows Powershell`. Uruchom:
+
+    python -m degiro_pit.enricher Transactions.csv --date_column_name Datum --currency EUR
 
 To komenda dla niemieckiej wersji DeGiro. Jeśli kolumna daty w Twoim pliku CSV nazywa się inaczej to zmień `Datum` na swoją nazwę. 
 Możesz także wybrać inną walutę. Obecnie są wspierane EUR i USD. 
+Jeśli nazwałeś plik inaczej niż  domyślne `Transactions.csv` to użyj nazwy swojego pliku w komendzie powyżej.
+
 ## Wyniki
 
-Wyniki znajdują  się w katalogu `data` pod nazwą `output.csv`. 
+Wyniki znajdują  się w katalogu gdzie została uruchomiona aplikacja. Nazwa pliku wynikowego to `output.csv`. 
 Wyniki należy otworzyć używanym przez Ciebie arkuszem kalkulacyknym (np. LibreOffice Calc).
 
 Dysponując kolumną z kursem waluty z dnia poprzedniego od transakcji (`eur_pln_day_before`) łatwo stworzyć kolumnę z wyliczoną wartością w złotówkach.

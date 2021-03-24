@@ -8,13 +8,13 @@ from degiro_pit.nbp_api import NbpApi
 def enrich(args):
     config = DeGiroPitConfig(args)
     nbp_api = NbpApi()
-    transactions = pd.read_csv("../data/Transactions.csv")
+    transactions = pd.read_csv(config.transactions_file)
     transactions["pd_date"] = pd.to_datetime(transactions[config.date_column_name], dayfirst=True)
     date_tax = DateTaxPoland()
     transactions["previous_workday"] = date_tax.get_tax_date(transactions["pd_date"])
     transactions[f"{config.currency}_PLN_day_before"] = \
         transactions["previous_workday"].dt.strftime('%Y-%m-%d').apply(lambda date: get_currency_pln(date, nbp_api, config.currency))
-    transactions.to_csv("../data/output.csv")
+    transactions.to_csv("output.csv")
 
 
 def get_currency_pln(date, nbp_api, currency):

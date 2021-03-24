@@ -8,9 +8,9 @@ with open("requirements.txt") as f:
 
 setuptools.setup(
     name="degiro-pit-woj-i",
-    version="0.2.2",
+    version="0.3.0",
     author="Wojciech Indyk",
-    description="Application for get EUR/PLN value for the last working day of DeGiro transaction. "
+    description="Application for get PLN value of a currency for the last working day before DeGiro transaction. "
                 "It helps to prepare PIT for The National Revenue Administration",
     long_description=long_description,
     long_description_content_type="text/markdown",

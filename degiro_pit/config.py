@@ -16,10 +16,12 @@ class DeGiroPitConfig:
 
     def __init__(self, args) -> None:
         parser = argparse.ArgumentParser()
+        parser.add_argument("transactions_file")
         parser.add_argument("-d", "--date_column_name",
                             help=f"Name of date column in the CSV file. Default is {DeGiroPitConfig.date_column_name_default}.",
                             default=DeGiroPitConfig.date_column_name_default)
         parser.add_argument("--currency", type=Currency, choices=list(Currency), default=DeGiroPitConfig.currency_default)
         args = parser.parse_args(args)
+        self.transactions_file = args.transactions_file
         self.date_column_name = args.date_column_name
         self.currency = args.currency
