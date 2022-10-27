@@ -1,8 +1,12 @@
+import logging
+
 import pandas as pd
 
 from degiro_pit.date_tax import DateTaxPoland
 from degiro_pit.config import DeGiroPitConfig
 from degiro_pit.nbp_api import NbpApi
+
+logger = logging.getLogger(__name__)
 
 
 def enrich(args):
@@ -20,7 +24,7 @@ def enrich(args):
 def get_currency_pln(date, nbp_api, currency):
     res = nbp_api.get_pln(date, currency)
     if res is None:
-        print(f"Can't get currency value for the date {date}. Please raise an issue in the project on Github.")
+        logger.error(f"Can't get currency value for the date {date}. Please raise an issue in the project on Github.")
     return res
 
 
